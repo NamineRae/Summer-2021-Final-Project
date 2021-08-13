@@ -13,31 +13,65 @@ const cardDiv = document.querySelector('#card')
 // move the html format to js and loop through the format for each object
 
 getData().then((data) => {
+
     console.log(data)
 
-    data.forEach((character) => {
+     data.forEach((people) => {
 
-        let containderFrontDiv = document.createElement('div')
+        let containerFrontDiv = document.createElement('div')
 
         let frontHtml = `
-        <h1>Name</h1>
+        <h1>${people.name}</h1>
         // <img>If there is one</img>
         `
-        containderFrontDiv.innerHTML = frontHtml
+        containerFrontDiv.innerHTML = frontHtml
         
-        cardDiv.append(containderFrontDiv);
+        cardDiv.append(containerFrontDiv);
     })
 
-    data.forEach((character) => {
+    data.forEach((people) => {
 
-        let containderBackDiv = document.createElement('div')
+        let containerBackDiv = document.createElement('div')
 
         let backHtml = `
-        <h1>Gender</h1>
-        // <img>If there is one</img>
+        <h1>${people.gender}</h1>
+        <p>${people.age}</p>
+        <p>${people.species}</p>
+        <p>${people.hair_color}</p>
+        <p>${people.eye_color}</p>
         `
-        containderBackDiv.innerHTML = backHtml
+        containerBackDiv.innerHTML = backHtml
         
-        cardDiv.append(containderBackDiv);
+        cardDiv.append(containerBackDiv);
     })
+
+    // data.forEach((data) => {
+
+    //     let containerFrontDiv = document.createElement('div')
+
+    //     let frontHtml = `
+    //     <h1>${data.name}</h1>
+    //     // <img>If there is one</img>
+    //     `
+    //     containerFrontDiv.innerHTML = frontHtml
+        
+    //     cardDiv.append(containerFrontDiv);
+    // })
+
+    // data.forEach((data) => {
+
+    //     let containerBackDiv = document.createElement('div')
+
+    //     let backHtml = `
+    //     <h1>${data.gender}</h1>
+    //     <p>${data.age}</p>
+    //     <p>${data.species}</p>
+    //     <p>${data.hair_color}</p>
+    //     <p>${data.eye_color}</p>
+    //     `
+    //     containderBackDiv.innerHTML = backHtml
+        
+    //     cardDiv.append(containerBackDiv);
+    // })
+
 })
