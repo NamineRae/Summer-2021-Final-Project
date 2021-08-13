@@ -1,13 +1,9 @@
 body {
-background-color: aqua;
+background-color: rgb(173, 255, 255);
 }
 
 #title {
     max-width: 400px;
-}
-
-.card {
-    background-color: blueviolet;
 }
 
 .content {
@@ -20,18 +16,14 @@ background-color: aqua;
 }
 
 .front {
-    background-color: deeppink;
     align-items: flex-start;
 }
     
-}
-
-.back {
+/* .back {
     background-color: green;
-}
+} */
 
 #name {
-    color: hotpink;
     max-width: 150px;
     max-height: 300px;
     display: flex;

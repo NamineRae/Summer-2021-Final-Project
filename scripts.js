@@ -24,7 +24,12 @@ getData().then((data) => {
 
         //create the html format
         let frontHtml = `
-        <h1 id='name'>${people.name}</h1>`;
+        <h1 id='name'>${people.name}</h1>
+        <h2>Gender: ${people.gender}</h2>
+        <p>Age: ${people.age}</p>
+        <p>Hair Color: ${people.hair_color}</p>
+        <p>Eye Color: ${people.eye_color}</p>`;
+        //the h2 - eye color data is SUPPOSED to be the data shown when the expand button is clicked, but I won't be able to figure that out in time
 
         //link the html to the div. I think
         containerFrontDiv.innerHTML = frontHtml
@@ -72,6 +77,7 @@ getData().then((data) => {
 
 
     filterFemaleButton.addEventListener('click', () => {
+        
         contentDiv.innerHTML = '';
 
         getData().then((people) => {
