@@ -23,14 +23,8 @@ getData().then((data) => {
         let containerFrontDiv = document.createElement('div')
 
         //create the html format
-        let frontHtml = `
-        <h1 id='name'>${people.name}</h1>
-        <h2>Gender: ${people.gender}</h2>
-        <p>Age: ${people.age}</p>
-        <p>Hair Color: ${people.hair_color}</p>
-        <p>Eye Color: ${people.eye_color}</p>`;
-        //the h2 - eye color data is SUPPOSED to be the data shown when the expand button is clicked, but I won't be able to figure that out in time
-
+        let frontHtml = `<h1 id='name'>${people.name}</h1>`
+        
         //link the html to the div. I think
         containerFrontDiv.innerHTML = frontHtml
 
@@ -42,7 +36,11 @@ getData().then((data) => {
 
         //made button clickable
         expansionButton.addEventListener('click', () => {
-            console.log(`You have clicked the button for ${people.name} `)
+            console.log(`You have clicked the button for ${people.name} 
+            <h2>Gender: ${people.gender}</h2>
+            <p>Age: ${people.age}</p>
+            <p>Hair Color: ${people.hair_color}</p>
+            <p>Eye Color: ${people.eye_color}</p>`)
         })
 
         //attatch the button to the div
