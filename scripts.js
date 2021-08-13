@@ -76,7 +76,7 @@ getData().then((data) => {
 
     filterFemaleButton.addEventListener('click', () => {
         
-        contentDiv.innerHTML = '';
+        cardDiv.innerHTML = '';
 
         getData().then((people) => {
             let onlyFemale = people.filter((data) => {
