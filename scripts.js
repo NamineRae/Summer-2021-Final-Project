@@ -8,6 +8,7 @@ async function getData () {
     return apiData
 }
 
+//select the corresponding divs in html? I think?
 const cardDiv = document.querySelector('#card')
 const contentDiv = document.querySelector('#content')
  
@@ -23,8 +24,8 @@ getData().then((data) => {
 
         //create the html format
         let frontHtml = `
-        <h1>${people.name}</h1>
-        <p>Click for more information</p>
+        <h1 id='name'>${people.name}</h1>
+        <button id='expand'>Click for more information</button>
         `
         //link the html to the div. I think
         containerFrontDiv.innerHTML = frontHtml
@@ -53,9 +54,7 @@ getData().then((data) => {
     //attatch the content div to the bigger card div
     cardDiv.append(contentDiv)
 
-    cardDiv.addEventListener('click', function(){
-        cardDiv.classList.toggle('is-flipped');
-    })
+   
 
 })
 
