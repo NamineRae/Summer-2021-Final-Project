@@ -24,11 +24,24 @@ getData().then((data) => {
 
         //create the html format
         let frontHtml = `
-        <h1 id='name'>${people.name}</h1>
-        <button id='expand'>Click for more information</button>
-        `
+        <h1 id='name'>${people.name}</h1>`;
+
         //link the html to the div. I think
         containerFrontDiv.innerHTML = frontHtml
+
+        //make expansion button
+        let expansionButton = document.createElement('button');
+
+        //button's text
+        expansionButton.innerHTML = 'Click for more information'
+
+        //made button clickable
+        expansionButton.addEventListener('click', () => {
+            console.log(`You have clicked the button for ${people.name} `)
+        })
+
+        //attatch the button to the div
+        containerFrontDiv.append(expansionButton)
         
         //append the front div to the content div
         contentDiv.append(containerFrontDiv);
@@ -54,7 +67,54 @@ getData().then((data) => {
     //attatch the content div to the bigger card div
     cardDiv.append(contentDiv)
 
-   
+    const filterFemaleButton = document.querySelector('#femaleFilter');
+    const filterMaleButton = document.querySelector('#fmaleFilter');
+
+
+    filterFemaleButton.addEventListener('click', () => {
+        contentDiv.innerHTML = '';
+
+        getData().then((people) => {
+            let onlyFemale = people.filter((data) => {
+                return data.gender ==='female'
+               })
+
+               displayPeople(onlyFemale)
+        })
+    })
+
+    filterMaleButton.addEventListener('click', () => {
+        contentDiv.innerHTML = '';
+
+        getData().then((people) => {
+            let onlyMale = people.filter((data) => {
+                return data.gender ==='male'
+               })
+
+               displayPeople(onlyMale)
+        })
+    })
+
+    //make button to filter to only female characters
+    // femaleFilterButton.addEventListener('click', () => {
+    //     getData().then((people) => {
+    //          let onlyFemale = people.filter((data) => {
+    //          return data.gender ==='female'
+    //         })
+
+    //     displayPeople(onlyFemale);
+    //      })
+    // })
+
+    //make button to filter to only male characters
+    maleFilterButton.addEventListener('click', () => {
+        getData().then((people) => {
+            let onlyMale = people.filter((data) => {
+            return data.gender ==='male'
+             })
+
+        displayPeople(onlyMale);
+        })
+    })
 
 })
-
