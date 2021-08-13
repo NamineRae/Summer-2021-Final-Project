@@ -9,6 +9,7 @@ async function getData () {
 }
 
 const cardDiv = document.querySelector('#card')
+const contentDiv = document.querySelector('#content')
  
 // move the html format to js and loop through the format for each object
 
@@ -17,61 +18,44 @@ getData().then((data) => {
     console.log(data)
 
      data.forEach((people) => {
-
+        //create the div
         let containerFrontDiv = document.createElement('div')
 
+        //create the html format
         let frontHtml = `
         <h1>${people.name}</h1>
-        // <img>If there is one</img>
+        <p>Click for more information</p>
         `
+        //link the html to the div. I think
         containerFrontDiv.innerHTML = frontHtml
         
-        cardDiv.append(containerFrontDiv);
+        //append the front div to the content div
+        contentDiv.append(containerFrontDiv);
     })
 
     data.forEach((people) => {
-
+        //create the back div
         let containerBackDiv = document.createElement('div')
-
+        //creathe the back div html
         let backHtml = `
-        <h1>${people.gender}</h1>
-        <p>${people.age}</p>
-        <p>${people.species}</p>
-        <p>${people.hair_color}</p>
-        <p>${people.eye_color}</p>
+        <h2>Gender: ${people.gender}</h2>
+        <p>Age: ${people.age}</p>
+        <p>Hair Color: ${people.hair_color}</p>
+        <p>Eye Color: ${people.eye_color}</p>
         `
+        //attatch the html to the div
         containerBackDiv.innerHTML = backHtml
         
-        cardDiv.append(containerBackDiv);
+        //attatch the back div to the front div
+        containerFrontDiv.append(containerBackDiv);
     })
 
-    // data.forEach((data) => {
+    //attatch the content div to the bigger card div
+    cardDiv.append(contentDiv)
 
-    //     let containerFrontDiv = document.createElement('div')
-
-    //     let frontHtml = `
-    //     <h1>${data.name}</h1>
-    //     // <img>If there is one</img>
-    //     `
-    //     containerFrontDiv.innerHTML = frontHtml
-        
-    //     cardDiv.append(containerFrontDiv);
-    // })
-
-    // data.forEach((data) => {
-
-    //     let containerBackDiv = document.createElement('div')
-
-    //     let backHtml = `
-    //     <h1>${data.gender}</h1>
-    //     <p>${data.age}</p>
-    //     <p>${data.species}</p>
-    //     <p>${data.hair_color}</p>
-    //     <p>${data.eye_color}</p>
-    //     `
-    //     containderBackDiv.innerHTML = backHtml
-        
-    //     cardDiv.append(containerBackDiv);
-    // })
+    cardDiv.addEventListener('click', function(){
+        cardDiv.classList.toggle('is-flipped');
+    })
 
 })
+

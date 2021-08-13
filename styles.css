@@ -19,3 +19,7 @@ background-color: aqua;
 .back {
     background-color: green;
 }
+
+.card.is-flipped {
+    transform: rotateY(180deg;)
+}
